@@ -23,6 +23,10 @@ MongoDB.once('open', function(){
 //routes
 app.use('/', index);
 //second route (app.use) of I need one
+
+
+
+
 //server
 
 var server = app.listen(3000, function(){
