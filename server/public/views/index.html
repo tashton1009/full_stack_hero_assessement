@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="heroApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Super Hero</title>
+    <!-- MAKE SURE TO INCLUDE SOURCES -->
+    <script src="vendors/angular/angular.min.js"></script>
+    <script src="assets/scripts/client.min.js"></script>
   </head>
-  <body>
+  <body ng-controller="superHeroController">
+    <h1>Super Heroes</h1>
+    Super Alias: <input type="text" ng-model="hero.alias"  /> <br />
+    First Name: <input type="text" ng-model="hero.firstName"  /><br />
+    Last Name: <input type="text" ng-model="hero.lastName"  /><br />
+    Location: <input type="text" ng-model="hero.city"  /><br />
+    Power Type:<br />
+    <input type="radio" name="powerName" value="Invisibility"> Invisibility<br>
+<input type="radio" name="powerName" value="Flight"> Flight<br>
+<input type="radio" name="powerName" value="Super Speed"> Super Speed <br />
+<input type="radio" name="powerName" value="Heat Vision"> Heat Vision<br>
+<input type="radio" name="powerName" value="Super Strength"> Super Strength<br>
+<input type="radio" name="powerName" value="Accelerated Heating"> Accelerated Heating<br>
+<input type="radio" name="powerName" value="Power Blast"> Power Blast<br>
+<input type="radio" name="powerName" value="Animal Affinity"> Animal Affinity<br>
+<button ng-click="add(superhero)">Sumbit Your Hero Here!</button>
+<div>
+<p ng-repeat="hero in superHeroes track by $index">
+  Name: {{hero.firstName}}{{hero.lastName}}<br />
+  Alias: {{hero.alias}}<br />
+  City: {{hero.city}}<br />
+  Special Power: {{hero.powerName}}
+
+</p>
+
+</div>
 
   </body>
 </html>

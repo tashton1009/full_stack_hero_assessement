@@ -1,15 +1,17 @@
 var express = require('express');
 var index = require('./routes/index')
+var heroRoutes = ('./routes/heroRoutes.js');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var mongoURI = "mongodb://localhost:27017/assignments";
 var MongoDB = mongoose.connect(mongoURI).connection;
-//second route if I need one
-
+//
 //configs
-app.use(express.static('server/public'));
+
 app.use(bodyParser.json());
+app.use(express.static('server/public'));
+
 
 MongoDB.on('error', function(err){
   console.log("mongo error server.js line 15", err);
@@ -23,7 +25,7 @@ MongoDB.once('open', function(){
 //routes
 app.use('/', index);
 //second route (app.use) of I need one
-
+app.use('/hero', heroRoutes);
 
 
 
