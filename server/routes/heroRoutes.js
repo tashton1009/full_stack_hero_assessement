@@ -15,7 +15,7 @@ router.get('/', function(request, response){
   });
 });
 
-router.post('/', function(request, response){
+router.post('/add', function(request, response){
   console.log(request.body);
   var superhero = new Superhero({
     alias:request.body.alias,
@@ -31,8 +31,11 @@ router.post('/', function(request, response){
     }else{
       response.send('Its getting down to here', superhero)
     }
-  });
-});
+    //return router;
 
+  });
+  //return router;
+});
+//return router;
 
 module.exports = router;

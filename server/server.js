@@ -1,12 +1,12 @@
 var express = require('express');
 var index = require('./routes/index')
-var heroRoutes = ('./routes/heroRoutes.js');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var mongoURI = "mongodb://localhost:27017/assignments";
+var mongoURI = "mongodb://localhost:27017/superheroes";
 var MongoDB = mongoose.connect(mongoURI).connection;
-//
+var heroRoutes = ('./routes/heroRoutes');
+
 //configs
 
 app.use(bodyParser.json());
@@ -24,8 +24,9 @@ MongoDB.once('open', function(){
 
 //routes
 app.use('/', index);
-//second route (app.use) of I need one
-app.use('/hero', heroRoutes);
+//this line is causing all the ttrouble I'm going to die
+
+//app.use('/add', heroRoutes);
 
 
 

@@ -4,7 +4,7 @@ $scope.hero = {};
 $scope.superHeroes = [];
 
 var fetchHeroes = function(){
-  return $http.get('/').then(function(response){
+  $http.get('/all').then(function(response){
     if(response.status !== 200){
       throw new error('failed to fetch old heroes')
     }
@@ -14,8 +14,8 @@ var fetchHeroes = function(){
   });
 };
 
-$scope.add = function(superhero){
-  return $http.post('/', $scope.hero).then(fetchHeroes());
+$scope.add = function(hero){
+  return $http.post('/add', $scope.hero).then(fetchHeroes());
 };
 fetchHeroes();
 
